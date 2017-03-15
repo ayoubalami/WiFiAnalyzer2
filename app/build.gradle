@@ -1,0 +1,86 @@
+/*
+ * WiFi Analyzer
+ * Copyright (C) 2016  VREM Software Development <VREMSoftwareDevelopment@gmail.com>
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program.  If not, see <http://www.gnu.org/licenses/>
+ */
+
+apply plugin: 'com.android.application'
+apply plugin: 'jacoco-android'
+
+android {
+    compileSdkVersion 25
+    buildToolsVersion '25.0.2'
+
+    defaultConfig {
+        applicationId "com.gammalabs.wifianalyzer"
+        minSdkVersion 16
+        targetSdkVersion 22
+        versionCode 2
+        versionName "1.1"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android.txt')
+            signingConfig
+        }
+        debug {
+            debuggable true
+            testCoverageEnabled true
+        }
+    }
+
+    testOptions {
+        unitTests.all {
+            jacoco {
+                includeNoLocationClasses true
+            }
+        }
+    }
+}
+
+jacoco {
+    toolVersion "0.7.8"
+}
+
+jacocoAndroidUnitTestReport {
+    excludes += ['**/com/jjoe64/*']
+    html.enabled true
+    xml.enabled true
+    csv.enabled false
+}
+
+
+
+dependencies {
+    // Compile Build Dependencies
+    compile fileTree(include: ['*.jar'], dir: 'libs')
+    compile 'com.android.support:appcompat-v7:25.1.0'
+    compile 'com.android.support:design:25.1.0'
+    compile 'org.apache.commons:commons-lang3:3.5'
+    compile 'com.jjoe64:graphview:4.2.1'
+    // Unit Test Dependencies
+    testCompile 'junit:junit:4.12'
+    testCompile 'org.powermock:powermock-module-junit4:1.6.6'
+    testCompile 'org.powermock:powermock-api-mockito:1.6.6'
+    testCompile 'com.googlecode.junit-toolbox:junit-toolbox:2.2'
+    testCompile 'org.robolectric:robolectric:3.1.4'
+    testCompile 'org.robolectric:shadows-support-v4:3.1.4'
+    compile 'com.google.firebase:firebase-ads:9.6.1'
+    compile 'com.google.android.gms:play-services:9.6.1'
+
+}
+apply plugin: 'com.google.gms.google-services'

@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "999737153495",
+    "firebase_url": "https://wifi-c68a5.firebaseio.com",
+    "project_id": "wifi-c68a5",
+    "storage_bucket": "wifi-c68a5.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:999737153495:android:d7199decb689c754",
+        "android_client_info": {
+          "package_name": "com.gammalabs.wifianalyzer"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "999737153495-i80evbr7qlru7f7akudv02nihupb6rmh.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDep6I1z5gYl0CAdxrc-SGQMnpK4xG7URc"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
